@@ -10,11 +10,10 @@ ENV SRCPATH ${GOPATH}/src/github.com/adnanh
 ENV WEBHOOK_VERSION 2.3.7
 ENV PATH=$PATH:/usr/local/go/bin
 
-RUN curl -O https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz && \
-    tar -xvf go1.5.3.linux-amd64.tar.gz && \
+RUN curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz && \
+    tar -xvf go1.6.linux-amd64.tar.gz && \
     mv go /usr/local && \
-    echo "PATH=$PATH:/usr/local/go/bin" >> /etc/environment && \
-    rm -f go1.5.3.linux-amd64.tar.gz
+    rm -f go1.6.linux-amd64.tar.gz
 
 RUN curl -L -o /tmp/webhook-${WEBHOOK_VERSION}.tar.gz https://github.com/adnanh/webhook/archive/${WEBHOOK_VERSION}.tar.gz && \
     mkdir -p ${SRCPATH} && tar -xvzf /tmp/webhook-${WEBHOOK_VERSION}.tar.gz -C ${SRCPATH} && \
